@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <title>{{EMAIL_TITLE}}</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    /* === RESETS === */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    body { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+
+    /* === WEB FONTS (Apple Mail, iOS, some Android) === */
+    /* @import url('https://rsms.me/inter/inter.css'); */
+
+    /* === RESPONSIVE === */
+    @media screen and (max-width: 600px) {
+      .email-container { width: 100% !important; max-width: 100% !important; }
+      .fluid { max-width: 100% !important; height: auto !important; }
+      .stack-column { display: block !important; width: 100% !important; max-width: 100% !important; }
+      .stack-column-center { text-align: center !important; }
+      .padding-mobile { padding-left: 24px !important; padding-right: 24px !important; }
+      .hide-mobile { display: none !important; }
+      .show-mobile { display: block !important; }
+    }
+
+    /* === DARK MODE === */
+    @media (prefers-color-scheme: dark) {
+      /* Add dark mode overrides here */
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F3F1EE;">
+
+  <!-- PREVIEW TEXT (hidden) -->
+  <div style="display: none; max-height: 0; overflow: hidden;">
+    {{PREVIEW_TEXT}}
+    <!-- Whitespace hack to push Gmail preview text -->
+    &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+  </div>
+
+  <!-- EMAIL WRAPPER -->
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #F3F1EE;">
+    <tr>
+      <td style="padding: 40px 20px;">
+
+        <!-- EMAIL CONTAINER (600px max) -->
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" align="center" class="email-container" style="margin: 0 auto; background-color: #FFFFFF;">
+
+          <!-- === HEADER === -->
+          <tr>
+            <td style="padding: 32px 40px; text-align: left; background-color: {{HEADER_BG_COLOR}};">
+              <img src="{{LOGO_PATH}}" alt="{{COMPANY_NAME}}" width="100" style="display: block; max-width: 100px; height: auto;">
+            </td>
+          </tr>
+
+          <!-- === HERO IMAGE (optional) === -->
+          <!--
+          <tr>
+            <td style="background-color: {{HERO_BG_COLOR}};">
+              <img src="{{HERO_IMAGE_PATH}}" alt="{{HERO_IMAGE_ALT}}" width="600" style="display: block; width: 100%; max-width: 600px; height: auto;">
+            </td>
+          </tr>
+          -->
+
+          <!-- === HERO TEXT === -->
+          <tr>
+            <td style="padding: 48px 40px; text-align: left; background-color: {{HERO_BG_COLOR}};">
+              <h1 style="margin: 0 0 16px 0; font-family: Arial Black, Helvetica, sans-serif; font-size: 36px; line-height: 1.1; font-weight: 700; color: {{HERO_TEXT_COLOR}};">
+                {{HEADLINE}}
+              </h1>
+              <p style="margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.5; font-weight: 400; color: {{HERO_SUBTEXT_COLOR}};">
+                {{SUBHEADLINE}}
+              </p>
+            </td>
+          </tr>
+
+          <!-- === BODY CONTENT === -->
+          <tr>
+            <td style="padding: 40px; background-color: #FFFFFF;">
+              <p style="margin: 0 0 20px 0; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: #333333;">
+                {{BODY_PARAGRAPH_1}}
+              </p>
+              <p style="margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; font-weight: 400; color: #333333;">
+                {{BODY_PARAGRAPH_2}}
+              </p>
+            </td>
+          </tr>
+
+          <!-- === CTA BUTTON === -->
+          <tr>
+            <td style="padding: 0 40px 40px 40px; background-color: #FFFFFF;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="border-radius: 4px; background-color: {{BUTTON_BG_COLOR}};">
+                    <a href="{{BUTTON_URL}}" style="display: inline-block; padding: 14px 32px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 600; color: {{BUTTON_TEXT_COLOR}}; text-decoration: none;">
+                      {{BUTTON_TEXT}}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- === FOOTER === -->
+          <tr>
+            <td style="padding: 32px 40px; text-align: center; background-color: {{FOOTER_BG_COLOR}};">
+              <img src="{{LOGO_PATH}}" alt="{{COMPANY_NAME}}" width="80" style="display: inline-block; max-width: 80px; height: auto; margin-bottom: 16px;">
+              <p style="margin: 0 0 8px 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.5; color: {{FOOTER_TEXT_COLOR}};">
+                {{COMPANY_ADDRESS}}
+              </p>
+              <p style="margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.5; color: {{FOOTER_TEXT_COLOR}};">
+                <a href="{{UNSUBSCRIBE_URL}}" style="color: {{FOOTER_LINK_COLOR}}; text-decoration: underline;">Unsubscribe</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="{{PREFERENCES_URL}}" style="color: {{FOOTER_LINK_COLOR}}; text-decoration: underline;">Preferences</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- END EMAIL CONTAINER -->
+
+      </td>
+    </tr>
+  </table>
+  <!-- END EMAIL WRAPPER -->
+
+</body>
+</html>

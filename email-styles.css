@@ -1,0 +1,342 @@
+/**
+ * Bolt Email Styles
+ * Based on Bolt Brand Guidelines - January 2024
+ *
+ * Note: For HTML emails, these styles should be inlined.
+ * This file serves as a reference and can be used with CSS inlining tools.
+ */
+
+/* ==========================================================================
+   Font Face Definitions
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Agrandir Narrow';
+  src: url('assets/Agrandir/Agrandir-Narrow.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Agrandir';
+  src: url('assets/Agrandir/Agrandir-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Agrandir';
+  src: url('assets/Agrandir/Agrandir-TextBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Agrandir Tight';
+  src: url('assets/Agrandir/Agrandir-Tight.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Agrandir Grand';
+  src: url('assets/Agrandir/Agrandir-GrandLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Agrandir Grand';
+  src: url('assets/Agrandir/Agrandir-GrandHeavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Inter - Load from official CDN (https://rsms.me/inter/) */
+@import url('https://rsms.me/inter/inter.css');
+
+/* ==========================================================================
+   CSS Variables (for reference - inline actual values in emails)
+   ========================================================================== */
+
+:root {
+  /* Primary Colors */
+  --bolt-lightning-yellow: #E1FF00;
+  --bolt-black: #11190C;
+  --bolt-dark-grey: #787664;
+  --bolt-mid-grey: #CAC4B7;
+  --bolt-light-grey: #F3F1EE;
+
+  /* Typography */
+  --font-headline: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+  --font-body: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F3F1EE; /* Light Grey */
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #11190C; /* Bolt Black */
+}
+
+/* ==========================================================================
+   Email Container
+   ========================================================================== */
+
+.email-wrapper {
+  width: 100%;
+  background-color: #F3F1EE;
+  padding: 40px 20px;
+}
+
+.email-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.email-header {
+  padding: 32px 40px;
+  text-align: center;
+}
+
+.email-header--dark {
+  background-color: #11190C;
+}
+
+.email-header--yellow {
+  background-color: #E1FF00;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/* Headlines - Agrandir Narrow Bold equivalent */
+h1, .headline {
+  font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.1;
+  margin: 0 0 16px 0;
+  color: #11190C;
+}
+
+h2, .subheadline {
+  font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0 0 12px 0;
+  color: #11190C;
+}
+
+/* Body Copy - Inter */
+p, .body-text {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+  color: #11190C;
+}
+
+.body-text--small {
+  font-size: 14px;
+}
+
+/* Text on dark backgrounds */
+.text-light {
+  color: #F3F1EE;
+}
+
+/* Highlighted text */
+.highlight {
+  color: #E1FF00;
+}
+
+/* ==========================================================================
+   Content Sections
+   ========================================================================== */
+
+.content-section {
+  padding: 40px;
+}
+
+.content-section--dark {
+  background-color: #11190C;
+  color: #F3F1EE;
+}
+
+.content-section--yellow {
+  background-color: #E1FF00;
+  color: #11190C;
+}
+
+.content-section--grey {
+  background-color: #787664;
+  color: #F3F1EE;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.button {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+}
+
+/* Primary button - Yellow */
+.button--primary {
+  background-color: #E1FF00;
+  color: #11190C;
+}
+
+/* Secondary button - Black */
+.button--secondary {
+  background-color: #11190C;
+  color: #F3F1EE;
+}
+
+/* Button on dark background */
+.button--on-dark {
+  background-color: #E1FF00;
+  color: #11190C;
+}
+
+/* Button on yellow background */
+.button--on-yellow {
+  background-color: #11190C;
+  color: #F3F1EE;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.hero--dark {
+  background-color: #11190C;
+}
+
+.hero--yellow {
+  background-color: #E1FF00;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero--dark h1 {
+  color: #F3F1EE;
+}
+
+.hero--dark .highlight {
+  color: #E1FF00;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.email-footer {
+  padding: 32px 40px;
+  text-align: center;
+  background-color: #11190C;
+}
+
+.footer-logo {
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-text {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #787664;
+  margin: 0;
+}
+
+.footer-links {
+  margin: 16px 0;
+}
+
+.footer-link {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #CAC4B7;
+  text-decoration: none;
+  margin: 0 12px;
+}
+
+.footer-link:hover {
+  color: #E1FF00;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mt-0 { margin-top: 0; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+
+/* ==========================================================================
+   Dividers
+   ========================================================================== */
+
+.divider {
+  height: 1px;
+  background-color: #CAC4B7;
+  border: none;
+  margin: 32px 0;
+}
+
+.divider--yellow {
+  background-color: #E1FF00;
+  height: 3px;
+}

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolt Component Library</title>
+
+  <!-- Fonts -->
+  <style>
+    @font-face {
+      font-family: 'Agrandir Narrow';
+      src: url('assets/Agrandir/Agrandir-Narrow.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @import url('https://rsms.me/inter/inter.css');
+  </style>
+
+  <style>
+    :root {
+      --lightning-yellow: #E1FF00;
+      --bolt-black: #11190C;
+      --dark-grey: #787664;
+      --mid-grey: #CAC4B7;
+      --light-grey: #F3F1EE;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background-color: var(--bolt-black);
+      color: var(--light-grey);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background-color: var(--lightning-yellow);
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .logo {
+      display: inline-block;
+      height: 64px;
+      margin-bottom: 24px;
+    }
+
+    .logo img {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
+
+    .header h1 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 64px;
+      line-height: 1.05;
+      font-weight: 700;
+      color: var(--bolt-black);
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .header p {
+      font-size: 20px;
+      color: var(--bolt-black);
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--lightning-yellow);
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-description {
+      font-size: 16px;
+      color: var(--mid-grey);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background-color: #1a2314;
+      border-radius: 5px;
+      padding: 32px;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      text-decoration: none;
+      display: block;
+    }
+
+    .card:hover {
+      border-color: var(--lightning-yellow);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(225, 255, 0, 0.15);
+    }
+
+    .card-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--lightning-yellow);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--light-grey);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .card-description {
+      font-size: 15px;
+      color: var(--mid-grey);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--dark-grey);
+    }
+
+    .card-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-arrow {
+      margin-left: auto;
+      color: var(--lightning-yellow);
+      font-size: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover .card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Info Section */
+    .info-section {
+      background-color: #1a2314;
+      border-radius: 5px;
+      padding: 40px;
+      margin-bottom: 80px;
+      border-left: 4px solid var(--lightning-yellow);
+    }
+
+    .info-section h3 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--light-grey);
+      margin-bottom: 16px;
+    }
+
+    .info-section p {
+      font-size: 16px;
+      color: var(--mid-grey);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .info-section ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .info-section ul li {
+      font-size: 15px;
+      color: var(--mid-grey);
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .info-section ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--lightning-yellow);
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--lightning-yellow);
+      padding: 40px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .footer p {
+      color: var(--bolt-black);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 48px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="#" class="logo">
+      <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/blacklogo.png" alt="Bolt">
+    </a>
+    <h1>Component Library</h1>
+    <p>Explore Bolt's web components and design patterns. Every component follows brand guidelines for consistency.</p>
+  </header>
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <h3>About This Library</h3>
+      <p>This is a living collection of Bolt's web components and design patterns. Each showcase demonstrates different options and variations, all built to brand standards.</p>
+      <ul>
+        <li><strong>Brand compliant:</strong> All components use correct logo files, brand colors, and typography</li>
+        <li><strong>Responsive:</strong> Adapts to mobile, tablet, and desktop screens</li>
+        <li><strong>Interactive:</strong> Hover states show how components respond to user interaction</li>
+        <li><strong>Copy-ready:</strong> View source to copy HTML/CSS for your projects</li>
+      </ul>
+    </div>
+
+    <!-- Components Section -->
+    <section class="section">
+      <h2 class="section-title">Web Components</h2>
+      <p class="section-description">Interactive UI elements and patterns for web applications and marketing sites.</p>
+
+      <div class="card-grid">
+
+        <!-- Buttons -->
+        <a href="showcases/button-showcase.html" class="card">
+          <div class="card-label">Interactive Elements</div>
+          <h3 class="card-title">Buttons</h3>
+          <p class="card-description">7 button variations including primary, secondary, ghost, inverted, text links, and experimental styles.</p>
+          <div class="card-meta">
+            <span>7 Options</span>
+            <span>●</span>
+            <span>All States</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Navigation -->
+        <a href="showcases/navigation-showcase.html" class="card">
+          <div class="card-label">Site Navigation</div>
+          <h3 class="card-title">Navigation</h3>
+          <p class="card-description">7 navigation patterns from minimal clean to mega bold split. Includes horizontal, centered, floating, and sidebar options.</p>
+          <div class="card-meta">
+            <span>7 Options</span>
+            <span>●</span>
+            <span>Responsive</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Footers -->
+        <a href="showcases/footer-showcase.html" class="card">
+          <div class="card-label">Page Footer</div>
+          <h3 class="card-title">Footers</h3>
+          <p class="card-description">5 footer layouts from minimal to mega. Includes CTA footers, centered layouts, and full yellow bold options.</p>
+          <div class="card-meta">
+            <span>5 Options</span>
+            <span>●</span>
+            <span>Mobile-First</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Brand Resources Section -->
+    <section class="section">
+      <h2 class="section-title">Brand Resources</h2>
+      <p class="section-description">Guidelines, documentation, and reference materials for creating on-brand assets.</p>
+
+      <div class="card-grid">
+
+        <!-- Brand Asset Guide -->
+        <a href="BRAND-ASSET-GUIDE.md" class="card">
+          <div class="card-label">Documentation</div>
+          <h3 class="card-title">Brand Asset Guide</h3>
+          <p class="card-description">Complete brand guidelines covering colors, typography, logo usage, voice, and asset creation workflows.</p>
+          <div class="card-meta">
+            <span>Essential</span>
+            <span>●</span>
+            <span>Comprehensive</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Project Memory -->
+        <a href="PROJECT-MEMORY.md" class="card">
+          <div class="card-label">Context & Learnings</div>
+          <h3 class="card-title">Project Memory</h3>
+          <p class="card-description">Persistent context across sessions. Tracks decisions, patterns, common mistakes, and critical learnings.</p>
+          <div class="card-meta">
+            <span>Living Doc</span>
+            <span>●</span>
+            <span>Read First</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Skills Directory -->
+        <a href="skills/" class="card">
+          <div class="card-label">Workflow Tools</div>
+          <h3 class="card-title">Skills</h3>
+          <p class="card-description">Specialized workflows for creating emails, web components, and reviewing brand assets.</p>
+          <div class="card-meta">
+            <span>4 Skills</span>
+            <span>●</span>
+            <span>Process Guides</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Email Templates Section -->
+    <section class="section">
+      <h2 class="section-title">Email Templates</h2>
+      <p class="section-description">Production-ready HTML email templates with inline CSS and email-safe code.</p>
+
+      <div class="card-grid">
+
+        <!-- Brand Announcement V3 -->
+        <a href="emails/brand-announcement-v3.html" class="card">
+          <div class="card-label">Marketing Email</div>
+          <h3 class="card-title">Brand Announcement</h3>
+          <p class="card-description">Complete brand announcement email template. Reference this for email best practices.</p>
+          <div class="card-meta">
+            <span>V3 (Latest)</span>
+            <span>●</span>
+            <span>Production-Ready</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Bolt Component Library — Built with ⚡ energy</p>
+  </footer>
+
+</body>
+</html>

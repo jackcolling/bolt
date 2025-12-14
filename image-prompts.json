@@ -1,0 +1,122 @@
+{
+  "bolt_brand_images": [
+    {
+      "id": "sunglasses_portrait",
+      "description": "Woman with neon yellow Bolt sunglasses",
+      "image_generation": {
+        "subject": {
+          "gender": "female",
+          "ethnicity": "Black/African American",
+          "pose": {
+            "description": "holding oversized round sunglasses up to face with one hand, fingers gently gripping the frame near the temple"
+          },
+          "expression": "confident, subtle closed-lip smile, playful and self-assured",
+          "hairstyle": "long braids pulled back, neat and styled away from face",
+          "skin": "rich dark complexion, smooth and glowing",
+          "clothing": {
+            "top": "bright lime green/chartreuse top or dress, matching the sunglasses color",
+            "visible_details": "one shoulder visible, clean minimal styling"
+          },
+          "accessories": [
+            "oversized round sunglasses in Lightning Yellow (#E1FF00)",
+            "dark/black nail polish"
+          ]
+        },
+        "environment": {
+          "setting": "studio or neutral indoor space",
+          "background": "warm beige/taupe neutral tone, soft and uncluttered",
+          "lighting": {
+            "type": "soft studio lighting",
+            "tone": "warm, natural, flattering",
+            "highlights": "soft glow on skin, slight reflection on sunglasses frames"
+          }
+        },
+        "composition": {
+          "camera_type": "professional portrait camera",
+          "framing": "tight portrait crop, head and upper shoulders",
+          "angle": "straight-on, eye level",
+          "focus": "sharp focus on face and sunglasses, shallow depth of field",
+          "color_palette": [
+            "Lightning Yellow #E1FF00 (sunglasses and clothing)",
+            "warm beige/taupe background",
+            "rich dark skin tones"
+          ]
+        },
+        "aesthetic": {
+          "style": "high-end fashion editorial portrait",
+          "mood": "confident, playful, bold, modern",
+          "brand_alignment": "Bolt brand - knowingly playful, comfortably at ease",
+          "clarity": "crisp details, vibrant colors, professional quality"
+        },
+        "output": {
+          "quality": "ultra-high-resolution",
+          "render_style": "photorealistic",
+          "aspect_ratio": "4:5 or 1:1 portrait"
+        }
+      }
+    },
+    {
+      "id": "hand_holding_phone",
+      "description": "Hand holding smartphone displaying Bolt logo",
+      "image_generation": {
+        "subject": {
+          "element": "human hand holding smartphone",
+          "hand_details": {
+            "skin_tone": "light/fair complexion",
+            "pose": "natural grip on phone, thumb resting on side, fingers wrapped around back",
+            "nails": "clean, natural or clear polish"
+          },
+          "phone": {
+            "type": "modern smartphone, thin bezels",
+            "screen_content": "solid Lightning Yellow (#E1FF00) background with black Bolt logo centered",
+            "orientation": "portrait"
+          }
+        },
+        "environment": {
+          "setting": "outdoor, winter/cold weather urban setting",
+          "background_elements": [
+            "bare tree branches out of focus",
+            "overcast sky",
+            "soft natural daylight"
+          ],
+          "lighting": {
+            "type": "natural overcast daylight",
+            "tone": "cool, soft, diffused",
+            "highlights": "subtle reflection on phone screen edges"
+          }
+        },
+        "composition": {
+          "camera_type": "smartphone or mirrorless camera",
+          "framing": "close-up of hand and phone, lifestyle shot",
+          "angle": "slight angle showing phone screen clearly",
+          "focus": "sharp focus on phone screen and hand, background softly blurred",
+          "depth_of_field": "shallow, bokeh effect on background",
+          "color_palette": [
+            "Lightning Yellow #E1FF00 (phone screen)",
+            "Bolt Black #11190C (logo on screen)",
+            "muted cool tones in background",
+            "natural skin tones"
+          ]
+        },
+        "aesthetic": {
+          "style": "lifestyle product photography",
+          "mood": "modern, tech-forward, clean, aspirational",
+          "brand_alignment": "Bolt brand - lightning quick, trustworthy, simple",
+          "clarity": "sharp product focus, natural lifestyle context"
+        },
+        "output": {
+          "quality": "ultra-high-resolution",
+          "render_style": "photorealistic",
+          "aspect_ratio": "4:5 or 3:4"
+        }
+      }
+    }
+  ],
+  "brand_colors_reference": {
+    "lightning_yellow": "#E1FF00",
+    "bolt_black": "#11190C",
+    "dark_grey": "#787664",
+    "mid_grey": "#CAC4B7",
+    "light_grey": "#F3F1EE"
+  }
+}

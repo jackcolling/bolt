@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolt Button Showcase</title>
+
+  <!-- Fonts -->
+  <style>
+    @font-face {
+      font-family: 'Agrandir Narrow';
+      src: url('assets/Agrandir/Agrandir-Narrow.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @import url('https://rsms.me/inter/inter.css');
+  </style>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background-color: #F3F1EE;
+      color: #11190C;
+      padding: 64px 40px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 56px;
+      line-height: 1.05;
+      font-weight: 700;
+      color: #11190C;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #787664;
+      margin-bottom: 64px;
+      font-weight: 500;
+    }
+
+    .section {
+      background: #FFFFFF;
+      padding: 48px;
+      border-radius: 5px;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #11190C;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-description {
+      font-size: 16px;
+      color: #787664;
+      margin-bottom: 32px;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .button-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .button-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #787664;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* === PRIMARY BUTTONS === */
+
+    .btn-primary {
+      display: inline-block;
+      background-color: #E1FF00;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background-color: #11190C;
+      color: #E1FF00;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(17, 25, 12, 0.2);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(17, 25, 12, 0.2);
+    }
+
+    /* Primary Large */
+    .btn-primary-large {
+      font-size: 18px;
+      padding: 20px 56px;
+      font-weight: 700;
+    }
+
+    /* Primary Small */
+    .btn-primary-small {
+      font-size: 14px;
+      padding: 12px 28px;
+      font-weight: 600;
+    }
+
+    /* === SECONDARY BUTTONS === */
+
+    .btn-secondary {
+      display: inline-block;
+      background-color: transparent;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 38px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: 2px solid #11190C;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-secondary:hover {
+      background-color: #11190C;
+      color: #E1FF00;
+      border-color: #11190C;
+    }
+
+    .btn-secondary:active {
+      background-color: #11190C;
+      color: #F3F1EE;
+    }
+
+    /* === GHOST BUTTONS === */
+
+    .btn-ghost {
+      display: inline-block;
+      background-color: transparent;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-ghost:hover {
+      background-color: #E1FF00;
+      color: #11190C;
+    }
+
+    .btn-ghost:active {
+      background-color: #F3F1EE;
+    }
+
+    /* === INVERTED (Dark Background) === */
+
+    .dark-section {
+      background: #11190C;
+      padding: 48px;
+      border-radius: 5px;
+      margin-bottom: 40px;
+    }
+
+    .dark-section .section-title {
+      color: #E1FF00;
+    }
+
+    .dark-section .section-description {
+      color: #CAC4B7;
+    }
+
+    .dark-section .button-label {
+      color: #CAC4B7;
+    }
+
+    .btn-inverted-primary {
+      display: inline-block;
+      background-color: #E1FF00;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-inverted-primary:hover {
+      background-color: #F3F1EE;
+      color: #11190C;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(225, 255, 0, 0.3);
+    }
+
+    .btn-inverted-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-inverted-secondary {
+      display: inline-block;
+      background-color: transparent;
+      color: #E1FF00;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 38px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: 2px solid #E1FF00;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-inverted-secondary:hover {
+      background-color: #E1FF00;
+      color: #11190C;
+      border-color: #E1FF00;
+    }
+
+    .btn-inverted-ghost {
+      display: inline-block;
+      background-color: transparent;
+      color: #F3F1EE;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-inverted-ghost:hover {
+      background-color: #E1FF00;
+      color: #11190C;
+    }
+
+    /* === TEXT LINK BUTTONS === */
+
+    .btn-link {
+      display: inline-block;
+      background-color: transparent;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 8px 0;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .btn-link::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #E1FF00;
+      transition: width 0.3s ease;
+    }
+
+    .btn-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-link:hover {
+      color: #11190C;
+    }
+
+    .btn-link-arrow {
+      display: inline-block;
+      background-color: transparent;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 8px 0;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-link-arrow::after {
+      content: '→';
+      margin-left: 8px;
+      transition: margin-left 0.2s ease;
+    }
+
+    .btn-link-arrow:hover::after {
+      margin-left: 12px;
+    }
+
+    .btn-link-arrow:hover {
+      color: #11190C;
+    }
+
+    /* === ICON BUTTONS === */
+
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: #E1FF00;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-icon svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-icon:hover {
+      background-color: #11190C;
+      color: #E1FF00;
+      transform: translateY(-2px);
+    }
+
+    .btn-icon:hover svg {
+      transform: translateX(4px);
+    }
+
+    .btn-icon:hover svg path {
+      fill: #E1FF00;
+    }
+
+    /* === PILL BUTTONS === */
+
+    .btn-pill {
+      display: inline-block;
+      background-color: #E1FF00;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-pill:hover {
+      background-color: #11190C;
+      color: #E1FF00;
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(17, 25, 12, 0.2);
+    }
+
+    .btn-pill:active {
+      transform: scale(1);
+    }
+
+    /* === MINIMAL BUTTONS === */
+
+    .btn-minimal {
+      display: inline-block;
+      background-color: #F3F1EE;
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-minimal:hover {
+      background-color: #E1FF00;
+      color: #11190C;
+    }
+
+    /* === BOLD EXPERIMENTAL === */
+
+    .btn-bold {
+      display: inline-block;
+      background-color: #E1FF00;
+      color: #11190C;
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 20px 48px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-align: center;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+    }
+
+    .btn-bold:hover {
+      background-color: #11190C;
+      color: #E1FF00;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 24px rgba(17, 25, 12, 0.3);
+    }
+
+    .btn-bold:active {
+      transform: translateY(-2px) scale(1);
+    }
+
+    .btn-split {
+      display: inline-flex;
+      align-items: center;
+      background-color: #E1FF00;
+      border-radius: 5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      overflow: hidden;
+    }
+
+    .btn-split-main {
+      color: #11190C;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 32px;
+      background-color: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .btn-split-accent {
+      background-color: #11190C;
+      color: #E1FF00;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .btn-split:hover .btn-split-main {
+      background-color: #11190C;
+      color: #E1FF00;
+    }
+
+    .btn-split:hover .btn-split-accent {
+      background-color: #E1FF00;
+      color: #11190C;
+    }
+
+    /* Utility */
+    .state-label {
+      font-size: 12px;
+      color: #787664;
+      margin-top: 4px;
+    }
+
+    code {
+      background-color: #F3F1EE;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 14px;
+      color: #11190C;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Bolt Buttons</h1>
+    <p class="subtitle">Hover over buttons to see interaction states</p>
+
+    <!-- PRIMARY BUTTONS -->
+    <div class="section">
+      <h2 class="section-title">Primary Buttons</h2>
+      <p class="section-description">Lightning Yellow background, bold and unmistakable. The hero button.</p>
+
+      <div class="button-grid">
+        <div class="button-demo">
+          <div class="button-label">Large Primary</div>
+          <button class="btn-primary btn-primary-large">Get Started</button>
+          <p class="state-label">Hover: Inverts to black background with yellow text + lift</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Standard Primary</div>
+          <button class="btn-primary">Download Now</button>
+          <p class="state-label">Default CTA size</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Small Primary</div>
+          <button class="btn-primary btn-primary-small">Learn More</button>
+          <p class="state-label">Compact version</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECONDARY BUTTONS -->
+    <div class="section">
+      <h2 class="section-title">Secondary Buttons</h2>
+      <p class="section-description">Outlined style for secondary actions. Less prominent but still clear.</p>
+
+      <div class="button-grid">
+        <div class="button-demo">
+          <div class="button-label">Outlined Secondary</div>
+          <button class="btn-secondary">Learn More</button>
+          <p class="state-label">Hover: Fills with black, yellow text</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Ghost Button</div>
+          <button class="btn-ghost">Explore</button>
+          <p class="state-label">Hover: Yellow background appears</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Minimal Button</div>
+          <button class="btn-minimal">View Details</button>
+          <p class="state-label">Hover: Transforms to yellow</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DARK BACKGROUND BUTTONS -->
+    <div class="dark-section">
+      <h2 class="section-title">Inverted (Dark Backgrounds)</h2>
+      <p class="section-description">For use on Bolt Black backgrounds.</p>
+
+      <div class="button-grid">
+        <div class="button-demo">
+          <div class="button-label">Inverted Primary</div>
+          <button class="btn-inverted-primary">Get Started</button>
+          <p class="state-label">Hover: Lightens to white with glow</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Inverted Secondary</div>
+          <button class="btn-inverted-secondary">Learn More</button>
+          <p class="state-label">Hover: Fills with yellow</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Inverted Ghost</div>
+          <button class="btn-inverted-ghost">Explore</button>
+          <p class="state-label">Hover: Yellow background</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXT LINK BUTTONS -->
+    <div class="section">
+      <h2 class="section-title">Text Links</h2>
+      <p class="section-description">Minimal interactive text for inline links and tertiary actions.</p>
+
+      <div class="button-grid">
+        <div class="button-demo">
+          <div class="button-label">Underline on Hover</div>
+          <a href="#" class="btn-link">View documentation</a>
+          <p class="state-label">Hover: Yellow underline animates in</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Arrow Link</div>
+          <a href="#" class="btn-link-arrow">Read the story</a>
+          <p class="state-label">Hover: Arrow moves right</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ICON BUTTONS -->
+    <div class="section">
+      <h2 class="section-title">Icon Buttons</h2>
+      <p class="section-description">Buttons with iconography for added visual interest.</p>
+
+      <div class="button-grid">
+        <div class="button-demo">
+          <div class="button-label">Icon + Text</div>
+          <button class="btn-icon">
+            Download Kit
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2L10 14M10 14L6 10M10 14L14 10M3 18H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="state-label">Hover: Icon slides right, inverts colors</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Arrow Icon</div>
+          <button class="btn-icon">
+            Next Step
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="state-label">Directional action</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIMENTAL STYLES -->
+    <div class="section">
+      <h2 class="section-title">Experimental / Bold Options</h2>
+      <p class="section-description">More expressive button styles for high-impact moments.</p>
+
+      <div class="button-grid">
+        <div class="button-demo">
+          <div class="button-label">Pill Button</div>
+          <button class="btn-pill">Join Waitlist</button>
+          <p class="state-label">Hover: Scales up with shadow</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Bold / Hero</div>
+          <button class="btn-bold">Start Now</button>
+          <p class="state-label">Hover: Dramatic lift with bounce easing</p>
+        </div>
+
+        <div class="button-demo">
+          <div class="button-label">Split Button</div>
+          <button class="btn-split">
+            <span class="btn-split-main">Download</span>
+            <span class="btn-split-accent">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 2L10 14M10 14L6 10M10 14L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+          <p class="state-label">Hover: Colors swap</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CODE REFERENCE -->
+    <div class="section">
+      <h2 class="section-title">Implementation Notes</h2>
+      <p class="section-description">Key CSS properties for Bolt buttons:</p>
+
+      <ul style="list-style: none; line-height: 2; color: #787664;">
+        <li>• <code>border-radius: 5px</code> for standard corners</li>
+        <li>• <code>padding: 16px 40px</code> for standard size</li>
+        <li>• <code>font-weight: 700</code> for primary, <code>600</code> for secondary</li>
+        <li>• <code>transition: all 0.2s ease</code> for smooth interactions</li>
+        <li>• <code>transform: translateY(-2px)</code> on hover for lift effect</li>
+        <li>• <code>box-shadow</code> optional on hover for depth</li>
+        <li>• Yellow (#E1FF00) inverts to black (#11190C) on hover</li>
+        <li>• Always use Inter font family with fallbacks</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolt Navigation Showcase</title>
+
+  <!-- Fonts -->
+  <style>
+    @font-face {
+      font-family: 'Agrandir Narrow';
+      src: url('../assets/Agrandir/Agrandir-Narrow.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @import url('https://rsms.me/inter/inter.css');
+  </style>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background-color: #F3F1EE;
+      color: #11190C;
+      padding: 64px 20px;
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 56px;
+      line-height: 1.05;
+      font-weight: 700;
+      color: #11190C;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #787664;
+      margin-bottom: 80px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* Section Wrapper */
+    .nav-section {
+      margin-bottom: 120px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #787664;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #11190C;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-description {
+      font-size: 16px;
+      color: #787664;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .demo-wrapper {
+      background: #FFFFFF;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(17, 25, 12, 0.08);
+    }
+
+    .demo-content {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #F3F1EE 0%, #E8E6E3 100%);
+      color: #787664;
+      font-size: 14px;
+    }
+
+    /* === OPTION 1: MINIMAL CLEAN === */
+    .nav-minimal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #F3F1EE;
+    }
+
+    .nav-minimal .logo {
+      display: block;
+      height: 32px;
+    }
+
+    .nav-minimal .logo img {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-minimal .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-minimal .nav-links a {
+      color: #11190C;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-minimal .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #E1FF00;
+      transition: width 0.3s ease;
+    }
+
+    .nav-minimal .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-minimal .nav-cta {
+      background-color: #E1FF00;
+      color: #11190C;
+      padding: 12px 28px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-size: 15px;
+    }
+
+    .nav-minimal .nav-cta:hover {
+      background-color: #11190C;
+      color: #E1FF00;
+      transform: translateY(-2px);
+    }
+
+    /* === OPTION 2: BOLD SPLIT === */
+    .nav-bold {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 0;
+      background-color: #11190C;
+    }
+
+    .nav-bold .logo-section {
+      background-color: #E1FF00;
+      padding: 28px 48px;
+    }
+
+    .nav-bold .logo {
+      display: block;
+      height: 36px;
+    }
+
+    .nav-bold .logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-bold .nav-links {
+      display: flex;
+      gap: 48px;
+      list-style: none;
+      padding: 0 48px;
+    }
+
+    .nav-bold .nav-links a {
+      color: #F3F1EE;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-bold .nav-links a:hover {
+      color: #E1FF00;
+    }
+
+    .nav-bold .nav-actions {
+      padding: 28px 48px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-bold .nav-cta {
+      background-color: #E1FF00;
+      color: #11190C;
+      padding: 12px 32px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-size: 15px;
+    }
+
+    .nav-bold .nav-cta:hover {
+      background-color: #F3F1EE;
+      transform: translateY(-2px);
+    }
+
+    /* === OPTION 3: CENTERED === */
+    .nav-centered {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 48px 24px 48px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #F3F1EE;
+      gap: 24px;
+    }
+
+    .nav-centered .logo {
+      display: block;
+      height: 40px;
+    }
+
+    .nav-centered .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-centered .nav-links {
+      display: flex;
+      gap: 48px;
+      list-style: none;
+    }
+
+    .nav-centered .nav-links a {
+      color: #11190C;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
+
+    .nav-centered .nav-links a:hover {
+      color: #E1FF00;
+    }
+
+    /* === OPTION 4: FLOATING === */
+    .nav-floating-wrapper {
+      padding: 24px;
+      background: linear-gradient(135deg, #F3F1EE 0%, #E8E6E3 100%);
+    }
+
+    .nav-floating {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #FFFFFF;
+      border-radius: 5px;
+      box-shadow: 0 4px 16px rgba(17, 25, 12, 0.1);
+    }
+
+    .nav-floating .logo {
+      display: block;
+      height: 32px;
+    }
+
+    .nav-floating .logo img {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-floating .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-floating .nav-links a {
+      color: #11190C;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .nav-floating .nav-links a:hover {
+      color: #11190C;
+      transform: translateY(-2px);
+    }
+
+    .nav-floating .nav-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: #E1FF00;
+      transition: width 0.3s ease;
+      margin-top: 4px;
+    }
+
+    .nav-floating .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-floating .nav-cta {
+      background-color: #E1FF00;
+      color: #11190C;
+      padding: 12px 28px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-size: 15px;
+    }
+
+    .nav-floating .nav-cta:hover {
+      background-color: #11190C;
+      color: #E1FF00;
+      transform: translateY(-2px);
+    }
+
+    /* === OPTION 5: MEGA BOLD === */
+    .nav-mega {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 48px;
+      background: linear-gradient(90deg, #E1FF00 0%, #E1FF00 50%, #11190C 50%, #11190C 100%);
+    }
+
+    .nav-mega .logo {
+      display: block;
+      height: 48px;
+    }
+
+    .nav-mega .logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-mega .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-mega .nav-links a {
+      color: #F3F1EE;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 14px;
+    }
+
+    .nav-mega .nav-links a:hover {
+      color: #E1FF00;
+      transform: scale(1.05);
+    }
+
+    .nav-mega .nav-cta {
+      background-color: #E1FF00;
+      color: #11190C;
+      padding: 14px 36px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-size: 16px;
+      border: 3px solid #11190C;
+    }
+
+    .nav-mega .nav-cta:hover {
+      background-color: #11190C;
+      color: #E1FF00;
+      border-color: #E1FF00;
+      transform: scale(1.05);
+    }
+
+    /* === OPTION 6: SIDEBAR STYLE === */
+    .nav-sidebar-wrapper {
+      display: flex;
+      min-height: 400px;
+    }
+
+    .nav-sidebar {
+      width: 280px;
+      background-color: #11190C;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .nav-sidebar .logo {
+      display: block;
+      height: 40px;
+    }
+
+    .nav-sidebar .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-sidebar .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-sidebar .nav-links a {
+      color: #F3F1EE;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      padding: 12px 16px;
+      border-radius: 5px;
+    }
+
+    .nav-sidebar .nav-links a:hover {
+      background-color: rgba(225, 255, 0, 0.1);
+      color: #E1FF00;
+      transform: translateX(8px);
+    }
+
+    .nav-sidebar .nav-cta {
+      background-color: #E1FF00;
+      color: #11190C;
+      padding: 16px 32px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .nav-sidebar .nav-cta:hover {
+      background-color: #F3F1EE;
+      transform: scale(1.05);
+    }
+
+    .sidebar-content {
+      flex: 1;
+      background: linear-gradient(135deg, #F3F1EE 0%, #E8E6E3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #787664;
+      font-size: 14px;
+    }
+
+    /* === OPTION 7: COMPACT STICKY === */
+    .nav-compact {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 48px;
+      background-color: #11190C;
+      border-bottom: 2px solid #E1FF00;
+    }
+
+    .nav-compact .logo {
+      display: block;
+      height: 28px;
+    }
+
+    .nav-compact .logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-compact .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-compact .nav-links a {
+      color: #F3F1EE;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-compact .nav-links a:hover {
+      color: #E1FF00;
+    }
+
+    .nav-compact .nav-cta {
+      background-color: #E1FF00;
+      color: #11190C;
+      padding: 10px 24px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-size: 14px;
+    }
+
+    .nav-compact .nav-cta:hover {
+      background-color: #F3F1EE;
+      transform: scale(1.05);
+    }
+
+    /* Mobile note */
+    .mobile-note {
+      background: #E1FF00;
+      padding: 16px 24px;
+      border-radius: 5px;
+      margin-top: 24px;
+      font-size: 14px;
+      color: #11190C;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .nav-minimal .nav-links,
+      .nav-bold .nav-links,
+      .nav-centered .nav-links,
+      .nav-floating .nav-links,
+      .nav-mega .nav-links,
+      .nav-compact .nav-links {
+        display: none;
+      }
+
+      .mobile-note {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+
+    <h1>Bolt Navigation</h1>
+    <p class="subtitle">Hover over navigation items to see interaction states</p>
+
+    <!-- OPTION 1: MINIMAL CLEAN -->
+    <div class="nav-section">
+      <div class="section-label">Option 01</div>
+      <h2 class="section-title">Minimal Clean</h2>
+      <p class="section-description">
+        Classic horizontal nav with yellow underline on hover. Clean, professional, works everywhere.
+      </p>
+
+      <div class="demo-wrapper">
+        <nav class="nav-minimal">
+          <a href="#" class="logo">
+            <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/blacklogo.png" alt="Bolt">
+          </a>
+          <ul class="nav-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+          <a href="#" class="nav-cta">Get Started</a>
+        </nav>
+        <div class="demo-content">Page content here</div>
+      </div>
+    </div>
+
+    <!-- OPTION 2: BOLD SPLIT -->
+    <div class="nav-section">
+      <div class="section-label">Option 02</div>
+      <h2 class="section-title">Bold Split</h2>
+      <p class="section-description">
+        Yellow logo section, black nav bar. Maximum brand impact. Makes a statement.
+      </p>
+
+      <div class="demo-wrapper">
+        <nav class="nav-bold">
+          <div class="logo-section">
+            <a href="#" class="logo">
+              <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/blacklogo.png" alt="Bolt">
+            </a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a href="#" class="nav-cta">Get Started</a>
+          </div>
+        </nav>
+        <div class="demo-content">Page content here</div>
+      </div>
+    </div>
+
+    <!-- OPTION 3: CENTERED -->
+    <div class="nav-section">
+      <div class="section-label">Option 03</div>
+      <h2 class="section-title">Centered Editorial</h2>
+      <p class="section-description">
+        Logo centered above navigation. Editorial, refined. Good for marketing pages.
+      </p>
+
+      <div class="demo-wrapper">
+        <nav class="nav-centered">
+          <a href="#" class="logo">
+            <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/blacklogo.png" alt="Bolt">
+          </a>
+          <ul class="nav-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </nav>
+        <div class="demo-content">Page content here</div>
+      </div>
+    </div>
+
+    <!-- OPTION 4: FLOATING -->
+    <div class="nav-section">
+      <div class="section-label">Option 04</div>
+      <h2 class="section-title">Floating Card</h2>
+      <p class="section-description">
+        Nav floats above page with shadow. Modern, airy. Good for sticky headers.
+      </p>
+
+      <div class="demo-wrapper">
+        <div class="nav-floating-wrapper">
+          <nav class="nav-floating">
+            <a href="#" class="logo">
+              <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/blacklogo.png" alt="Bolt">
+            </a>
+            <ul class="nav-links">
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Developers</a></li>
+              <li><a href="#">Company</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+            <a href="#" class="nav-cta">Get Started</a>
+          </nav>
+        </div>
+        <div class="demo-content">Page content here</div>
+      </div>
+    </div>
+
+    <!-- OPTION 5: MEGA BOLD -->
+    <div class="nav-section">
+      <div class="section-label">Option 05</div>
+      <h2 class="section-title">Mega Bold Split</h2>
+      <p class="section-description">
+        Half yellow, half black. Massive logo. Maximum energy. For brave brands.
+      </p>
+
+      <div class="demo-wrapper">
+        <nav class="nav-mega">
+          <a href="#" class="logo">
+            <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/blacklogo.png" alt="Bolt">
+          </a>
+          <ul class="nav-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">Company</a></li>
+          </ul>
+          <a href="#" class="nav-cta">Start Now</a>
+        </nav>
+        <div class="demo-content">Page content here</div>
+      </div>
+    </div>
+
+    <!-- OPTION 6: SIDEBAR -->
+    <div class="nav-section">
+      <div class="section-label">Option 06</div>
+      <h2 class="section-title">Sidebar Navigation</h2>
+      <p class="section-description">
+        Vertical sidebar nav. Great for apps, dashboards, documentation sites.
+      </p>
+
+      <div class="demo-wrapper">
+        <div class="nav-sidebar-wrapper">
+          <nav class="nav-sidebar">
+            <a href="#" class="logo">
+              <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/lightLogo.png" alt="Bolt">
+            </a>
+            <ul class="nav-links">
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Analytics</a></li>
+              <li><a href="#">Transactions</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+            <a href="#" class="nav-cta">Upgrade</a>
+          </nav>
+          <div class="sidebar-content">Main content area</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 7: COMPACT STICKY -->
+    <div class="nav-section">
+      <div class="section-label">Option 07</div>
+      <h2 class="section-title">Compact Sticky</h2>
+      <p class="section-description">
+        Minimal height for sticky headers. Yellow accent line. Stays out of the way.
+      </p>
+
+      <div class="demo-wrapper">
+        <nav class="nav-compact">
+          <a href="#" class="logo">
+            <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/lightLogo.png" alt="Bolt">
+          </a>
+          <ul class="nav-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+          <a href="#" class="nav-cta">Sign In</a>
+        </nav>
+        <div class="demo-content">Page content here</div>
+      </div>
+    </div>
+
+    <div class="mobile-note">
+      💡 Mobile responsive: On small screens, navigation collapses to hamburger menu (not shown in this demo)
+    </div>
+
+  </div>
+</body>
+</html>

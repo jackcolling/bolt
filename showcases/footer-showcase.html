@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolt Footer Showcase</title>
+
+  <!-- Fonts -->
+  <style>
+    @font-face {
+      font-family: 'Agrandir Narrow';
+      src: url('../assets/Agrandir/Agrandir-Narrow.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @import url('https://rsms.me/inter/inter.css');
+  </style>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background-color: #F3F1EE;
+      color: #11190C;
+      padding: 64px 20px;
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 56px;
+      line-height: 1.05;
+      font-weight: 700;
+      color: #11190C;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #787664;
+      margin-bottom: 80px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* Section Wrapper */
+    .footer-section {
+      margin-bottom: 120px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #787664;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #11190C;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-description {
+      font-size: 16px;
+      color: #787664;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .demo-wrapper {
+      background: #FFFFFF;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(17, 25, 12, 0.08);
+    }
+
+    .demo-content {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #F3F1EE 0%, #E8E6E3 100%);
+      color: #787664;
+      font-size: 14px;
+    }
+
+    /* === OPTION 1: MINIMAL CLEAN === */
+    .footer-minimal {
+      background-color: #11190C;
+      padding: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-minimal .logo {
+      display: block;
+      height: 32px;
+    }
+
+    .footer-minimal .logo img {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-minimal .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-minimal .footer-links a {
+      color: #CAC4B7;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .footer-minimal .footer-links a:hover {
+      color: #E1FF00;
+    }
+
+    .footer-minimal .footer-copyright {
+      color: #787664;
+      font-size: 14px;
+    }
+
+    /* === OPTION 2: MEGA FOOTER === */
+    .footer-mega {
+      background-color: #11190C;
+      padding: 80px 48px 48px 48px;
+    }
+
+    .footer-mega-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #787664;
+    }
+
+    .footer-mega .footer-brand {
+      padding-right: 40px;
+    }
+
+    .footer-mega .logo {
+      display: block;
+      height: 40px;
+      margin-bottom: 20px;
+    }
+
+    .footer-mega .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-mega .brand-tagline {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #CAC4B7;
+      margin-bottom: 24px;
+    }
+
+    .footer-mega .social-links {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+    }
+
+    .footer-mega .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #787664;
+      border-radius: 5px;
+      color: #F3F1EE;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .footer-mega .social-links a:hover {
+      background-color: #E1FF00;
+      color: #11190C;
+      transform: translateY(-2px);
+    }
+
+    .footer-mega .footer-column h4 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #E1FF00;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-mega .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-mega .footer-column ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-mega .footer-column ul li a {
+      color: #CAC4B7;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-mega .footer-column ul li a:hover {
+      color: #E1FF00;
+    }
+
+    .footer-mega-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-mega-bottom .copyright {
+      color: #787664;
+      font-size: 14px;
+    }
+
+    .footer-mega-bottom .legal-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-mega-bottom .legal-links a {
+      color: #787664;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-mega-bottom .legal-links a:hover {
+      color: #E1FF00;
+    }
+
+    /* === OPTION 3: SPLIT YELLOW === */
+    .footer-split {
+      background: linear-gradient(90deg, #E1FF00 0%, #E1FF00 40%, #11190C 40%, #11190C 100%);
+      padding: 64px 48px;
+      display: flex;
+      gap: 64px;
+    }
+
+    .footer-split-left {
+      flex: 2;
+      padding-right: 40px;
+    }
+
+    .footer-split-left .logo {
+      display: block;
+      height: 48px;
+      margin-bottom: 24px;
+    }
+
+    .footer-split-left .logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-split-left h3 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #11190C;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .footer-split-left p {
+      font-size: 16px;
+      color: #11190C;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-split-left .cta-button {
+      display: inline-block;
+      background-color: #11190C;
+      color: #E1FF00;
+      padding: 14px 32px;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-size: 16px;
+    }
+
+    .footer-split-left .cta-button:hover {
+      background-color: #787664;
+      transform: translateY(-2px);
+    }
+
+    .footer-split-right {
+      flex: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-split-right .footer-column h4 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #E1FF00;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-split-right .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-split-right .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-split-right .footer-column ul li a {
+      color: #CAC4B7;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-split-right .footer-column ul li a:hover {
+      color: #E1FF00;
+    }
+
+    /* === OPTION 4: CENTERED SIMPLE === */
+    .footer-centered {
+      background-color: #11190C;
+      padding: 64px 48px;
+      text-align: center;
+    }
+
+    .footer-centered .logo {
+      display: inline-block;
+      height: 40px;
+      margin-bottom: 32px;
+    }
+
+    .footer-centered .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-centered .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .footer-centered .footer-links a {
+      color: #CAC4B7;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .footer-centered .footer-links a:hover {
+      color: #E1FF00;
+    }
+
+    .footer-centered .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .footer-centered .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background-color: transparent;
+      border: 2px solid #787664;
+      border-radius: 5px;
+      color: #CAC4B7;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .footer-centered .social-links a:hover {
+      background-color: #E1FF00;
+      border-color: #E1FF00;
+      color: #11190C;
+      transform: translateY(-2px);
+    }
+
+    .footer-centered .copyright {
+      color: #787664;
+      font-size: 14px;
+      padding-top: 32px;
+      border-top: 1px solid #787664;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* === OPTION 5: YELLOW BOLD === */
+    .footer-yellow {
+      background-color: #E1FF00;
+      padding: 64px 48px;
+    }
+
+    .footer-yellow-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 2px solid #11190C;
+    }
+
+    .footer-yellow .logo {
+      display: block;
+      height: 56px;
+    }
+
+    .footer-yellow .logo img {
+      height: 56px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-yellow-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .footer-yellow-links .footer-column h4 {
+      font-family: 'Agrandir Narrow', Arial Black, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #11190C;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-yellow-links .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-yellow-links .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-yellow-links .footer-column ul li a {
+      color: #11190C;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-yellow-links .footer-column ul li a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-yellow-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-yellow-bottom .copyright {
+      color: #11190C;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer-yellow-bottom .social-links {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .footer-yellow-bottom .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #11190C;
+      border-radius: 5px;
+      color: #E1FF00;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .footer-yellow-bottom .social-links a:hover {
+      background-color: #787664;
+      transform: translateY(-2px);
+    }
+
+    /* Mobile note */
+    .mobile-note {
+      background: #E1FF00;
+      padding: 16px 24px;
+      border-radius: 5px;
+      margin-top: 24px;
+      font-size: 14px;
+      color: #11190C;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .footer-mega-top,
+      .footer-split,
+      .footer-split-right,
+      .footer-yellow-links {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-minimal,
+      .footer-mega-bottom,
+      .footer-yellow-bottom {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .footer-minimal .footer-links,
+      .footer-centered .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+
+    <h1>Bolt Footer</h1>
+    <p class="subtitle">Hover over links to see interaction states</p>
+
+    <!-- OPTION 1: MINIMAL CLEAN -->
+    <div class="footer-section">
+      <div class="section-label">Option 01</div>
+      <h2 class="section-title">Minimal Clean</h2>
+      <p class="section-description">
+        Single row. Logo, links, copyright. Simple, professional, gets out of the way.
+      </p>
+
+      <div class="demo-wrapper">
+        <div class="demo-content">Page content above footer</div>
+        <footer class="footer-minimal">
+          <a href="#" class="logo">
+            <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/lightLogo.png" alt="Bolt">
+          </a>
+          <ul class="footer-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <p class="footer-copyright">© 2025 Bolt</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- OPTION 2: MEGA FOOTER -->
+    <div class="footer-section">
+      <div class="section-label">Option 02</div>
+      <h2 class="section-title">Mega Footer</h2>
+      <p class="section-description">
+        Everything at a glance. Full sitemap, social links, organized columns. For content-rich sites.
+      </p>
+
+      <div class="demo-wrapper">
+        <div class="demo-content">Page content above footer</div>
+        <footer class="footer-mega">
+          <div class="footer-mega-top">
+            <div class="footer-brand">
+              <a href="#" class="logo">
+                <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/lightLogo.png" alt="Bolt">
+              </a>
+              <p class="brand-tagline">Powering the future of energy. Fast, bold, shockingly simple.</p>
+              <ul class="social-links">
+                <li><a href="#">𝕏</a></li>
+                <li><a href="#">in</a></li>
+                <li><a href="#">yt</a></li>
+                <li><a href="#">gh</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Products</h4>
+              <ul>
+                <li><a href="#">Energy API</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Integrations</a></li>
+                <li><a href="#">Pricing</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">API Reference</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Case Studies</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Status</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-mega-bottom">
+            <p class="copyright">© 2025 Bolt. All rights reserved.</p>
+            <ul class="legal-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- OPTION 3: SPLIT YELLOW -->
+    <div class="footer-section">
+      <div class="section-label">Option 03</div>
+      <h2 class="section-title">Split Yellow CTA</h2>
+      <p class="section-description">
+        Yellow CTA section + dark links section. Maximum energy. Encourages action before they leave.
+      </p>
+
+      <div class="demo-wrapper">
+        <div class="demo-content">Page content above footer</div>
+        <footer class="footer-split">
+          <div class="footer-split-left">
+            <a href="#" class="logo">
+              <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/blacklogo.png" alt="Bolt">
+            </a>
+            <h3>Ready to power up?</h3>
+            <p>Join thousands of companies using Bolt to transform their energy infrastructure.</p>
+            <a href="#" class="cta-button">Start Free Trial</a>
+          </div>
+          <div class="footer-split-right">
+            <div class="footer-column">
+              <h4>Product</h4>
+              <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">API</a></li>
+                <li><a href="#">Integrations</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="#">Docs</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Community</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Legal</a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- OPTION 4: CENTERED SIMPLE -->
+    <div class="footer-section">
+      <div class="section-label">Option 04</div>
+      <h2 class="section-title">Centered Simple</h2>
+      <p class="section-description">
+        Everything centered. Clean, symmetrical, editorial. Good for marketing sites and landing pages.
+      </p>
+
+      <div class="demo-wrapper">
+        <div class="demo-content">Page content above footer</div>
+        <footer class="footer-centered">
+          <a href="#" class="logo">
+            <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/lightLogo.png" alt="Bolt">
+          </a>
+          <ul class="footer-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+          <ul class="social-links">
+            <li><a href="#">𝕏</a></li>
+            <li><a href="#">in</a></li>
+            <li><a href="#">yt</a></li>
+            <li><a href="#">gh</a></li>
+          </ul>
+          <p class="copyright">© 2025 Bolt. Built to energize the future.</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- OPTION 5: YELLOW BOLD -->
+    <div class="footer-section">
+      <div class="section-label">Option 05</div>
+      <h2 class="section-title">Yellow Bold</h2>
+      <p class="section-description">
+        Full yellow background. Maximum brand presence. Unforgettable. For brave brands only.
+      </p>
+
+      <div class="demo-wrapper">
+        <div class="demo-content">Page content above footer</div>
+        <footer class="footer-yellow">
+          <div class="footer-yellow-content">
+            <a href="#" class="logo">
+              <img src="https://raw.githubusercontent.com/jackcolling/bolt/main/blacklogo.png" alt="Bolt">
+            </a>
+            <div class="footer-yellow-links">
+              <div class="footer-column">
+                <h4>Product</h4>
+                <ul>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Pricing</a></li>
+                  <li><a href="#">API</a></li>
+                  <li><a href="#">Integrations</a></li>
+                </ul>
+              </div>
+              <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Support</a></li>
+                  <li><a href="#">Community</a></li>
+                </ul>
+              </div>
+              <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Press</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+              <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                  <li><a href="#">Privacy</a></li>
+                  <li><a href="#">Terms</a></li>
+                  <li><a href="#">Security</a></li>
+                  <li><a href="#">Cookies</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-yellow-bottom">
+            <p class="copyright">© 2025 Bolt. All rights reserved.</p>
+            <ul class="social-links">
+              <li><a href="#">𝕏</a></li>
+              <li><a href="#">in</a></li>
+              <li><a href="#">yt</a></li>
+              <li><a href="#">gh</a></li>
+            </ul>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <div class="mobile-note">
+      💡 Mobile responsive: On small screens, layouts stack vertically for better readability
+    </div>
+
+  </div>
+</body>
+</html>
